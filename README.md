@@ -1,9 +1,7 @@
-# **CRIME ANALYSIS  REPORT** 
+# **LOS ANGELES COLLISION ETL** 
 
-
-							by
-							
-					   Amairani Garcia, Christian Bourdeau, Shan Huang
+by
+Amairani Garcia, Christian Bourdeau, Shan Huang
 
 # PROJECT DESCRIPTION:
 
