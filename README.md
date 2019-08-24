@@ -13,7 +13,7 @@ Based on the research of traffic collisions for the City of Los Angeles from 201
 
 ## Finding Data
 
-- EXTRACT: LA Collision data was extracted from the follwing two sources: 
+- EXTRACT: LA Collision data was extracted from the following two sources: 
 
 	- Lacity.org
 	- US Census Bureau
@@ -22,13 +22,13 @@ LA City data was formatted in a CSV file, while US Census Bureau had to be hard 
 
 ## Data Cleanup & Analysis
 
-- TRANSFORM: Useless columns and Null values were dropped. Columns were renamed, ethnicities and genders were map. Data was aggregated into seperate tables and unique ID's were created. Quickdatabasediagrams.com was used as tool to create relationship among the data and joining the tables.
+- TRANSFORM: Useless columns and Null values were dropped. Columns were renamed, ethnicities and genders were map. Data was aggregated into separate tables and unique ID's were created. Quickdatabasediagrams.com was used as tool to create relationship among the data and joining the tables.
 
 - LOAD: The clean csv data was imported into PostgreSQL as this was found to be the best way to not only illustrate and connect the relationship within the data, but also to effectively pull quick information from the database for multiple business purposes. 
-Eight individual table were created as decribed below:
+Eight individual table were created as described below:
 	- "Victim" table, holds all the unique ID's of each of the tables. This was used to join all tables. 
-	- "LAPopulation" table, contains the LA Population data extraced from the US Census Bureau. 
-	- The remaining six tables: "Crash", "Area", "Coordinates", "District", "Gender", and "Ethnicty" retain all the data from the LA 	   City broken down into their own entities. 
+	- "LAPopulation" table, contains the LA Population data extracted from the US Census Bureau. 
+	- The remaining six tables: "Crash", "Area", "Coordinates", "District", "Gender", and "Ethnicity" retain all the data from the LA 	   City broken down into their own entities. 
 	- Aside from the "Victim" table, the "Crash" table also holds the unique crash_id column, which displays every single collision incident occurred.
-	- "LAPopulation" was seperately joined with the "Ethnicity" table through the aggregated major races displayed in the US Census Bureau.
+	- "LAPopulation" was separately joined with the "Ethnicity" table through the aggregated major races displayed in the US Census Bureau.
 
