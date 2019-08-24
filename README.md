@@ -1,45 +1,34 @@
 # **LOS ANGELES COLLISION ETL** 
 
 by
-Amairani Garcia, Christian Bourdeau, Shan Huang
+Amairani Garcia, Christian Bourdeau, Christopher Dimmock, and Shan Huang
+
+# PROJECT PROPOSAL
+
+Before you start writing any code, remember that you only have one week to complete this project. View this project as a typical assignment from work. Imagine a bunch of data came in and you and your team are tasked with migrating it to a production data base.
 
 # PROJECT DESCRIPTION:
 
-Research of traffic collisions for the City of Los Angeles from 2010 to 2019 and create data visualizations using the records from the dataset. 
+Based on the research of traffic collisions for the City of Los Angeles from 2010 to 2019, data will be pulled and migrated to a PostgreSQL database. 
 
-# Analysis Overview:
+# Finding Data
 
-+ **Who?: the demographic distribution of collision victims**
-+ **When?: the time distribution of collisions**
-+ **Where?: the relationship of location in which collisions occured**
+- EXTRACT: LA Collision data was extracted from the follwing two sources: 
 
+	- Lacity.org
+	- US Census Bureau
 
-# Technology Overview
+LA City data was formatted in a CSV file, while US Census Bureau had to be hard code in a csv file from text. 
 
-| Technology   		| Description    							|
-| :---         		|     :---:      							|
-|  Github      		| HTML, CSS, AWS 							|
-|  API's       		| data.lacity.org, google 							|
-|  Python Libraries   	| Python, Pandas, Matplotlib, Seaborn, scipy.stats, numpy, seaborn, gmap    		|
-|  Supporting functions	| Sodapy (library), datecal, datetime, calendar, Rise (library)		|
+# Data Cleanup & Analysis
 
+- TRANSFORM: Useless columns and Null values were dropped. Columns were renamed, ethnicities and genders were map. Data was aggregated into seperate tables and unique ID's were created. Quickdatabasediagrams.com was used as tool to create relationship among the data and joining the tables.
 
-# Development Requirements		
-		
-+	Use Pandas to clean and format your dataset(s). 
-+	Create a Jupyter Notebook describing the data exploration and cleanup process.
-+	Create a Jupyter Notebook illustrating the final data analysis. 
-+	Use Matplotlib to create a total of 6–8 visualizations of your data (ideally, at least 2 per ”question” you ask of your data). 
-+	Save PNG images of your visualizations to distribute to the class and instructional team, and for inclusion in your presentation. 
-+	 Use at least one API, if you can find an API with data pertinent to your primary research questions. 
-+	Create a write-up summarizing your major findings. This should include a heading for each “question” you asked of your data and a short description of your findings and any relevant plots.
-		
-# Presentation Requirements 	
-		
-+	10-minute project overview
-+	Questions you found interesting and what motivated you to answer them
-+	Where and how you found the data you used to answer these questions
-+	The data exploration and cleanup process (accompanied by your Jupyter Notebook)
-+	The analysis process (accompanied by your Jupyter Notebook)
-+	Your conclusions, which should include a numerical summary and visualizations of that summary
-+	The implications of your findings: what do your findings mean?
+- LOAD: The clean csv data was imported into PostgreSQL as this was found to be the best way to not only illustrate and connect the relationship within the data, but also to effectively pull quick information from the database for multiple business purposes. 
+Eight individual table were created as decribed below:
+	- "Victim" table, holds all the unique ID's of each of the tables. This was used to join all tables. 
+	- "LAPopulation" table, contains the LA Population data extraced from the US Census Bureau. 
+	- The remaining six tables: "Crash", "Area", "Coordinates", "District", "Gender", and "Ethnicty" retain all the data from the LA 	   City broken down into their own entities. 
+	- Aside from the "Victim" table, the "Crash" table also holds the unique crash_id column, which displays every single collision incident occurred.
+	- "LAPopulation" was seperately joined with the "Ethnicity" table through the aggregated major races displayed in the US Census Bureau.
+
