@@ -3,15 +3,15 @@
 by
 Amairani Garcia, Christian Bourdeau, Christopher Dimmock, and Shan Huang
 
-# PROJECT PROPOSAL
+## PROJECT PROPOSAL
 
 Before you start writing any code, remember that you only have one week to complete this project. View this project as a typical assignment from work. Imagine a bunch of data came in and you and your team are tasked with migrating it to a production data base.
 
-# PROJECT DESCRIPTION:
+## PROJECT DESCRIPTION:
 
 Based on the research of traffic collisions for the City of Los Angeles from 2010 to 2019, data will be pulled and migrated to a PostgreSQL database. 
 
-# Finding Data
+## Finding Data
 
 - EXTRACT: LA Collision data was extracted from the follwing two sources: 
 
@@ -20,7 +20,7 @@ Based on the research of traffic collisions for the City of Los Angeles from 201
 
 LA City data was formatted in a CSV file, while US Census Bureau had to be hard code in a csv file from text. 
 
-# Data Cleanup & Analysis
+## Data Cleanup & Analysis
 
 - TRANSFORM: Useless columns and Null values were dropped. Columns were renamed, ethnicities and genders were map. Data was aggregated into seperate tables and unique ID's were created. Quickdatabasediagrams.com was used as tool to create relationship among the data and joining the tables.
 
